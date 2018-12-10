@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -16,12 +15,14 @@ ActiveRecord::Schema.define(version: 20160129041337) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "buckets", force: true do |t|
+  create_table "buckets", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
     t.integer  "region_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["region_id"], name: "index_buckets_on_region_id", using: :btree
+    t.index ["user_id"], name: "index_buckets_on_user_id", using: :btree
   end
 
   add_index "buckets", ["region_id"], name: "index_buckets_on_region_id", using: :btree
@@ -42,11 +43,11 @@ ActiveRecord::Schema.define(version: 20160129041337) do
     t.string   "asset"
     t.string   "md5"
     t.string   "content_type"
-    t.integer  "filesize",     limit: 8, default: 0
+    t.bigint   "filesize",     default: 0
     t.text     "description"
     t.float    "rating"
-    t.boolean  "nsfw",                   default: false
-    t.boolean  "adult",                  default: false
+    t.boolean  "nsfw",         default: false
+    t.boolean  "adult",        default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "folder_id"
@@ -59,12 +60,15 @@ ActiveRecord::Schema.define(version: 20160129041337) do
   add_index "cloud_files", ["duration"], name: "index_cloud_files_on_duration", using: :btree
   add_index "cloud_files", ["folder_id"], name: "index_cloud_files_on_folder_id", using: :btree
 
-  create_table "folders", force: true do |t|
+
+  create_table "folders", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ancestry"
     t.integer  "bucket_id"
+    t.index ["ancestry"], name: "index_folders_on_ancestry", using: :btree
+    t.index ["bucket_id"], name: "index_folders_on_bucket_id", using: :btree
   end
 
   add_index "folders", ["ancestry"], name: "index_folders_on_ancestry", using: :btree
@@ -132,9 +136,8 @@ ActiveRecord::Schema.define(version: 20160129041337) do
     t.string   "encrypted_secret_access_key_salt"
     t.string   "encrypted_secret_access_key_iv"
     t.string   "token"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
