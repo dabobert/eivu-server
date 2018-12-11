@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130215429) do
+ActiveRecord::Schema.define(version: 20160129041337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,16 +82,6 @@ ActiveRecord::Schema.define(version: 20160130215429) do
   add_index "metadata", ["user_id"], name: "index_metadata_on_user_id", using: :btree
   add_index "metadata", ["value"], name: "index_metadata_on_value", using: :btree
 
-  create_table "metadata_instances", force: true do |t|
-    t.integer  "cloud_file_id"
-    t.integer  "metadatum_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "metadata_instances", ["cloud_file_id"], name: "index_metadata_instances_on_cloud_file_id", using: :btree
-  add_index "metadata_instances", ["metadatum_id"], name: "index_metadata_instances_on_metadatum_id", using: :btree
-
   create_table "metadata_types", force: true do |t|
     t.string   "value"
     t.datetime "created_at"
@@ -110,7 +100,7 @@ ActiveRecord::Schema.define(version: 20160130215429) do
   create_table "tags", force: true do |t|
     t.string   "value"
     t.integer  "user_id"
-    t.boolean  "private",    default: false
+    t.boolean  "private"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
