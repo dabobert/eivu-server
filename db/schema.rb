@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181211020058) do
+ActiveRecord::Schema.define(version: 20190110051719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,15 @@ ActiveRecord::Schema.define(version: 20181211020058) do
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "metataggings", force: :cascade do |t|
+    t.integer  "cloud_file_id"
+    t.integer  "metadatum_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["cloud_file_id"], name: "index_metataggings_on_cloud_file_id", using: :btree
+    t.index ["metadatum_id"], name: "index_metataggings_on_metadatum_id", using: :btree
   end
 
   create_table "regions", force: :cascade do |t|
