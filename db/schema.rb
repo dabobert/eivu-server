@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 20190110051719) do
+=======
+ActiveRecord::Schema.define(version: 20160203003533) do
+>>>>>>> Stashed changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,11 +53,16 @@ ActiveRecord::Schema.define(version: 20190110051719) do
     t.integer  "folder_id"
     t.string   "info_url"
     t.integer  "bucket_id"
+<<<<<<< Updated upstream
     t.integer  "duration",     default: 0
     t.integer  "settings",     default: 0,     null: false
     t.index ["bucket_id"], name: "index_cloud_files_on_bucket_id", using: :btree
     t.index ["duration"], name: "index_cloud_files_on_duration", using: :btree
     t.index ["folder_id"], name: "index_cloud_files_on_folder_id", using: :btree
+=======
+    t.integer  "duration",               default: 0
+    t.integer  "settings",               default: 0,     null: false
+>>>>>>> Stashed changes
   end
 
   create_table "folders", force: :cascade do |t|
