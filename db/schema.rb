@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190114050633) do
+ActiveRecord::Schema.define(version: 20190116171344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20190114050633) do
     t.text     "description"
     t.float    "rating"
     t.boolean  "nsfw",           default: false
-    t.boolean  "adult",          default: false
+    t.boolean  "peepy",          default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "folder_id"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20190114050633) do
     t.datetime "updated_at"
     t.string   "ancestry"
     t.integer  "bucket_id"
-    t.boolean  "adult",      default: false, null: false
+    t.boolean  "peepy",      default: false, null: false
     t.boolean  "nsfw",       default: false, null: false
     t.index ["ancestry"], name: "index_folders_on_ancestry", using: :btree
     t.index ["bucket_id"], name: "index_folders_on_bucket_id", using: :btree
@@ -170,7 +170,7 @@ ActiveRecord::Schema.define(version: 20190114050633) do
     t.integer  "cloud_files_count", default: 0,     null: false
     t.integer  "release_type_id"
     t.integer  "bundle_pos",        default: 1
-    t.boolean  "adult",             default: false
+    t.boolean  "peepy",             default: false
     t.boolean  "nsfw",              default: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
