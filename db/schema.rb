@@ -165,13 +165,13 @@ ActiveRecord::Schema.define(version: 20190114050633) do
     t.string   "name"
     t.string   "ext_id"
     t.integer  "data_source_id"
-    t.integer  "cloud_files_count", default: 0, null: false
+    t.integer  "cloud_files_count", default: 0,     null: false
     t.integer  "release_type_id"
     t.integer  "bundle_pos",        default: 1
-    t.boolean  "adult"
-    t.boolean  "nsfw"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.boolean  "adult",             default: false
+    t.boolean  "nsfw",              default: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.index ["cloud_files_count"], name: "index_releases_on_cloud_files_count", using: :btree
     t.index ["data_source_id"], name: "index_releases_on_data_source_id", using: :btree
     t.index ["ext_id", "data_source_id"], name: "index_releases_on_ext_id_and_data_source_id", using: :btree
