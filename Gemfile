@@ -25,10 +25,13 @@ gem 'andyw8-itunes-library', '~> 0.1.3'
 gem 'itunes_parser', '~> 1.1', '>= 1.1.3' #A fast and simple iTunes XML parser based on nokogiri-plist
 gem "fuzzy_match" #Find a needle (a document or record) in a haystack using string similarity and (optionally) regular expression rules. Uses Dice's Coefficient (aka Pair Similiarity) and Levenshtein Distance internally.
 gem 'hashie', '~> 3.6' # collection of classes and mixins that make hashes more powerful.
- gem 'uglifier', '>= 1.3.0' # has to be outside of assets, to its present at boot. Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0' # has to be outside of assets, to its present at boot. Use Uglifier as compressor for JavaScript assets
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+
+# misc
+gem 'activejob-traffic_control', '~> 0.1.3'
 
 # presentation
 gem 'jquery-rails' # Use jquery as the JavaScript library
@@ -62,6 +65,7 @@ end
 group :test do
   gem 'database_cleaner', require: false
   gem 'rspec-rails'
+  gem 'rspec-its', '~> 1.2'
   # gem 'rspec_junit_formatter' # for circleci
   gem 'rails-controller-testing'
   gem 'rspec-json_expectations'
