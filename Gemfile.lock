@@ -27,6 +27,10 @@ GEM
     activejob (5.2.2)
       activesupport (= 5.2.2)
       globalid (>= 0.3.6)
+    activejob-traffic_control (0.1.3)
+      activejob (>= 4.2)
+      activesupport (>= 4.2)
+      suo
     activemodel (5.2.2)
       activesupport (= 5.2.2)
     activerecord (5.2.2)
@@ -89,6 +93,9 @@ GEM
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crass (1.0.5)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    dalli (2.7.10)
     database_cleaner (1.7.0)
     debug_inspector (0.0.3)
     devise (4.7.1)
@@ -149,6 +156,8 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.13.0)
+    mono_logger (1.1.0)
+    msgpack (1.3.1)
     multi_json (1.13.1)
     netrc (0.11.0)
     nio4r (2.3.1)
@@ -168,18 +177,13 @@ GEM
     pry-byebug (3.6.0)
       byebug (~> 10.0)
       pry (~> 0.10)
-<<<<<<< HEAD
     puma (3.12.2)
     rack (2.0.8)
     rack-cors (1.1.0)
       rack (>= 2.0.0)
     rack-protection (2.0.7)
-=======
     public_suffix (3.1.1)
-    puma (3.12.0)
     rack (2.0.6)
-    rack-protection (2.0.5)
->>>>>>> - updated Gemfile with stuff for testing
       rack
     rack-proxy (0.6.5)
       rack
@@ -242,6 +246,9 @@ GEM
     rspec-expectations (3.8.4)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
+    rspec-its (1.3.0)
+      rspec-core (>= 3.0.0)
+      rspec-expectations (>= 3.0.0)
     rspec-json_expectations (2.2.0)
     rspec-mocks (3.8.1)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -297,6 +304,14 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+<<<<<<< HEAD
+=======
+    subexec (0.2.3)
+    suo (0.3.3)
+      dalli
+      msgpack
+      redis
+>>>>>>> added activejob-traffic_control and rspec-its to gemfile
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -336,6 +351,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activejob-traffic_control (~> 0.1.3)
   ancestry
   andyw8-itunes-library (~> 0.1.3)
   annotate
@@ -382,6 +398,7 @@ DEPENDENCIES
   random_data (~> 1.6.0)
   rb-readline
   rest-client
+  rspec-its (~> 1.2)
   rspec-json_expectations
   rspec-rails
   sass-rails (~> 5.0.7)
