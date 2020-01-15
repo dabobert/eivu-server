@@ -21,8 +21,7 @@ module Types
 
 
     def get_user_from_id(**args)
-      user_id = args[:id]
-      user = User.find(user_id)
+      user = User.find(args[:id])
     end
   end
 end
