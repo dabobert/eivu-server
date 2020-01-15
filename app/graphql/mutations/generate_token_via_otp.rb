@@ -4,8 +4,7 @@ class Mutations::GenerateTokenViaOtp < GraphQL::Schema::Mutation
 
   type Types::UserType
 
-  def resolve(id, otp_code)
-    User.first
+  def resolve(args)
+    user = User.find(args[:id])
   end
-
 end
