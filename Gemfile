@@ -100,5 +100,5 @@ end
 group :development do
   gem 'annotate', require: false
   gem 'graphiql-rails'
-  gem 'puma', '~> 5.4'
+  gem 'puma', '~> 5.6'
 end
